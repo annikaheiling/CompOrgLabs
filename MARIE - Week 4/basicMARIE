@@ -1,0 +1,71 @@
+//MARIE program 1 :
+//based on 'high-level' statement:
+//result = x+y-z
+0. LOAD x //AC <- x
+1. ADD y //AC += y
+2. SUBT z //AC -= z 
+3. STORE result //result = AC 
+4. HALT 
+5. x, dec 10
+6. y, dec 20
+7. z, dec 5
+8. result, dec 0
+
+//WHAT EXISTS in MEMORY : these are base 16
+//(unless otherwise noted)
+0. 9005 //add is 9, x is at addy 5
+1. 3006
+2. 4007
+3. 2008 //store is 2, put in result at 8
+4. 7000 //halt is 7
+5. 1010 //?? 10 in base 10
+6. 10100 //20 in base 10
+7. 101 //5 in base 10
+8. 0 //0 in base 10
+
+//Assembly -> assembler -> machine language
+
+
+//MARIE program 2 :
+//based on 'high-level' statement:
+//if x < y then [if x - y < 0]
+//  print y 
+//else 
+//  print x 
+//end if
+0. load x //AC <- x
+1. subt y 
+2. skipcond 000 //means skip if AC is neg
+3. jump else 
+4. load y //happens after line 2 if true
+5. output 
+6. jump endif
+7. else, load x //name address 7 as else
+8. output
+9. endif, halt 
+10. x, dec 10 //name address 10 as x
+11. y, dec 20
+
+//MARIE program 3 : count down from 10 to 0
+//'high-level':
+//counter = 10
+//while counter > 0:
+//  print counter 
+//  counter = counter - 1
+//*recursively*:
+//count(i)
+// if i > 0
+//  print i 
+//  count(i-1)
+load counter 
+for, skipcond 000 //if ac neg, skip a line 
+jump whilebody
+jump endwhile
+whilebody, load counter 
+output 
+subt one 
+store counter 
+jump while
+endhwhile, halt 
+counter, dec 10
+one, dec 1
