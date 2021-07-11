@@ -1,0 +1,12 @@
+load x
+subt y 
+skipcond 000
+jump else 
+load y
+output 
+jump endif
+else, load x
+output
+endif, halt 
+x, dec 10
+y, dec 20

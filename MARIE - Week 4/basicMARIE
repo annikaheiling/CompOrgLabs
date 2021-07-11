@@ -58,7 +58,7 @@
 //  print i 
 //  count(i-1)
 load counter 
-for, skipcond 000 //if ac neg, skip a line 
+while, skipcond 000 //if ac neg, skip a line 
 jump whilebody
 jump endwhile
 whilebody, load counter 
@@ -66,6 +66,6 @@ output
 subt one 
 store counter 
 jump while
-endhwhile, halt 
+endwhile, halt 
 counter, dec 10
 one, dec 1

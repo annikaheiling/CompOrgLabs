@@ -1,0 +1,9 @@
+LOAD x
+ADD y
+SUBT z
+STORE result
+HALT
+x, dec 10
+y, dec 20
+z, dec 5
+result, dec 0

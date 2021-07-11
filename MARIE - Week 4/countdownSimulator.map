@@ -1,0 +1,9 @@
+ --------------------
+ Symbol    | Location
+ ----------+---------
+ counter   |   00A
+ endwhile  |   009
+ one       |   00B
+ while     |   001
+ whilebody |   004
+

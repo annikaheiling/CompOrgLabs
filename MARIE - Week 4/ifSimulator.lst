@@ -1,0 +1,29 @@
+     Assembly listing for: ifSimulator.mas
+                Assembled: Sun Jul 11 00:01:02 CDT 2021
+
+000 100A |         LOAD x            
+001 400B |         SUBT y            
+002 8000 |         SKIPCOND 000      
+003 9007 |         JUMP else         
+004 100B |         LOAD y            
+005 6000 |         OUTPUT            
+006 9009 |         JUMP endif        
+007 100A |  else   LOAD x            
+008 6000 |         OUTPUT            
+009 7000 |  endif  HALT              
+00A 000A |  x      DEC 10            
+00B 0014 |  y      DEC 20            
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          else   |   007   | 003
+          endif  |   009   | 006
+          x      |   00A   | 000, 007
+          y      |   00B   | 001, 004
+         --------------------------------------------------
+
+

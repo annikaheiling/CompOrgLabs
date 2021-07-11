@@ -1,0 +1,26 @@
+     Assembly listing for: simulator1.mas
+                Assembled: Sat Jul 10 23:49:11 CDT 2021
+
+000 1005 |         LOAD x            
+001 3006 |         ADD y             
+002 4007 |         SUBT z            
+003 2008 |         STORE result      
+004 7000 |         HALT              
+005 000A |  x      DEC 10            
+006 0014 |  y      DEC 20            
+007 0005 |  z      DEC 5             
+008 0000 |  result DEC 0             
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          result |   008   | 003
+          x      |   005   | 000
+          y      |   006   | 001
+          z      |   007   | 002
+         --------------------------------------------------
+
+

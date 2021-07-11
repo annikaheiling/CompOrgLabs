@@ -1,0 +1,30 @@
+     Assembly listing for: countdownSimulator.mas
+                Assembled: Sun Jul 11 00:14:50 CDT 2021
+
+000 100A |            LOAD counter         
+001 8000 |  while     SKIPCOND 000         
+002 9004 |            JUMP whilebody       
+003 9009 |            JUMP endwhile        
+004 100A |  whilebody LOAD counter         
+005 6000 |            OUTPUT               
+006 400B |            SUBT one             
+007 200A |            STORE counter        
+008 9001 |            JUMP while           
+009 7000 |  endwhile  HALT                 
+00A 000A |  counter   DEC 10               
+00B 0001 |  one       DEC 1                
+
+Assembly successful.
+
+         SYMBOL TABLE
+         -----------------------------------------------------
+          Symbol    | Defined | References 
+         -----------+---------+-------------------------------
+          counter   |   00A   | 000, 004, 007
+          endwhile  |   009   | 003
+          one       |   00B   | 006
+          while     |   001   | 008
+          whilebody |   004   | 002
+         -----------------------------------------------------
+
+

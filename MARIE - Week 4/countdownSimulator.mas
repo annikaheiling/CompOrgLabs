@@ -1,0 +1,12 @@
+load counter 
+while, skipcond 000
+jump whilebody
+jump endwhile
+whilebody, load counter 
+output 
+subt one 
+store counter 
+jump while
+endwhile, halt 
+counter, dec 10
+one, dec 1
