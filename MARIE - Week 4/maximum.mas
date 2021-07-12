@@ -1,0 +1,22 @@
+input
+store inOne
+input
+store inTwo
+load inTwo
+subt inOne
+store dif
+skipcond 400
+jump existsDif
+output
+halt
+existsDif, skipcond 000
+jump twoBigger
+load inOne
+output
+halt
+twoBigger, load inTwo
+output
+halt
+inOne, dec 0
+inTwo, dec 0
+dif, dec 0

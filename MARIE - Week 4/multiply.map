@@ -1,0 +1,11 @@
+ ------------------
+ Symbol  | Location
+ --------+---------
+ done    |   00F
+ inOne   |   012
+ inTwo   |   013
+ one     |   015
+ product |   014
+ while   |   006
+ zero    |   016
+

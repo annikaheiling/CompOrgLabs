@@ -1,0 +1,40 @@
+     Assembly listing for: maximum.mas
+                Assembled: Mon Jul 12 17:00:15 CDT 2021
+
+000 5000 |            INPUT                
+001 2013 |            STORE inOne          
+002 5000 |            INPUT                
+003 2014 |            STORE inTwo          
+004 1014 |            LOAD inTwo           
+005 4013 |            SUBT inOne           
+006 2015 |            STORE dif            
+007 8400 |            SKIPCOND 400         
+008 900B |            JUMP existsDif       
+009 6000 |            OUTPUT               
+00A 7000 |            HALT                 
+00B 8000 |  existsDif SKIPCOND 000         
+00C 9010 |            JUMP twoBigger       
+00D 1013 |            LOAD inOne           
+00E 6000 |            OUTPUT               
+00F 7000 |            HALT                 
+010 1014 |  twoBigger LOAD inTwo           
+011 6000 |            OUTPUT               
+012 7000 |            HALT                 
+013 0000 |  inOne     DEC 0                
+014 0000 |  inTwo     DEC 0                
+015 0000 |  dif       DEC 0                
+
+Assembly successful.
+
+         SYMBOL TABLE
+         -----------------------------------------------------
+          Symbol    | Defined | References 
+         -----------+---------+-------------------------------
+          dif       |   015   | 006
+          existsDif |   00B   | 008
+          inOne     |   013   | 001, 005, 00D
+          inTwo     |   014   | 003, 004, 010
+          twoBigger |   010   | 00C
+         -----------------------------------------------------
+
+

@@ -1,0 +1,22 @@
+input
+store inOne
+input
+store inTwo
+store dif
+load inTwo
+subt inOne
+skipcond 400
+jump noDif
+skipcond 800
+jump second
+load inOne
+output
+halt
+second, load inTwo
+output
+halt
+noDif, load dif
+halt
+inOne, dec 0
+inTwo, dec 0
+dif, dec 0

@@ -1,0 +1,9 @@
+ --------------------
+ Symbol    | Location
+ ----------+---------
+ dif       |   015
+ existsDif |   00B
+ inOne     |   013
+ inTwo     |   014
+ twoBigger |   010
+

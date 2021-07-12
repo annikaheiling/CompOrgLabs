@@ -69,3 +69,52 @@ jump while
 endwhile, halt 
 counter, dec 10
 one, dec 1
+
+#Maximum, or returns 0 if inputs are equal
+input
+store inOne
+input
+store inTwo
+load inTwo
+subt inOne
+store dif
+skipcond 400
+jump existsDif
+output
+halt
+existsDif, skipcond 000
+jump twoBigger
+load inOne
+output
+halt
+twoBigger, load inTwo
+output
+halt
+inOne, dec 0
+inTwo, dec 0
+dif, dec 0
+
+#Multiply
+load zero
+store product
+input
+store inOne
+input
+store inTwo
+while, skipcond 800
+jump done
+load product
+add inOne
+store product
+load inTwo
+subt one
+store inTwo
+jump while
+done, load product
+output 
+halt
+inOne, dec 0
+inTwo, dec 0
+product, dec 0
+one, dec 1
+zero, dec 0

@@ -1,0 +1,43 @@
+     Assembly listing for: multiply.mas
+                Assembled: Mon Jul 12 17:34:40 CDT 2021
+
+000 1016 |          LOAD zero          
+001 2014 |          STORE product      
+002 5000 |          INPUT              
+003 2012 |          STORE inOne        
+004 5000 |          INPUT              
+005 2013 |          STORE inTwo        
+006 8800 |  while   SKIPCOND 800       
+007 900F |          JUMP done          
+008 1014 |          LOAD product       
+009 3012 |          ADD inOne          
+00A 2014 |          STORE product      
+00B 1013 |          LOAD inTwo         
+00C 4015 |          SUBT one           
+00D 2013 |          STORE inTwo        
+00E 9006 |          JUMP while         
+00F 1014 |  done    LOAD product       
+010 6000 |          OUTPUT             
+011 7000 |          HALT               
+012 0000 |  inOne   DEC 0              
+013 0000 |  inTwo   DEC 0              
+014 0000 |  product DEC 0              
+015 0001 |  one     DEC 1              
+016 0000 |  zero    DEC 0              
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ---------------------------------------------------
+          Symbol  | Defined | References 
+         ---------+---------+-------------------------------
+          done    |   00F   | 007
+          inOne   |   012   | 003, 009
+          inTwo   |   013   | 005, 00B, 00D
+          one     |   015   | 00C
+          product |   014   | 001, 008, 00A, 00F
+          while   |   006   | 00E
+          zero    |   016   | 000
+         ---------------------------------------------------
+
+

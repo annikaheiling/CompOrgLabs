@@ -1,0 +1,23 @@
+load zero
+store product
+input
+store inOne
+input
+store inTwo
+while, skipcond 800
+jump done
+load product
+add inOne
+store product
+load inTwo
+subt one
+store inTwo
+jump while
+done, load product
+output 
+halt
+inOne, dec 0
+inTwo, dec 0
+product, dec 0
+one, dec 1
+zero, dec 0
