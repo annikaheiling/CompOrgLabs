@@ -1,0 +1,16 @@
+ ------------------------
+ Symbol        | Location
+ --------------+---------
+ checkThird    |   00D
+ checkThirdLow |   01B
+ findMin       |   017
+ high          |   02D
+ higher2nd     |   014
+ in1           |   02A
+ in2           |   02B
+ in3           |   02C
+ low           |   02E
+ lower2nd      |   022
+ range         |   02F
+ rangeFinding  |   025
+

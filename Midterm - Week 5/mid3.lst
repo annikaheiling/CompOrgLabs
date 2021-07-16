@@ -1,0 +1,23 @@
+     Assembly listing for: mid3.mas
+                Assembled: Thu Jul 15 15:12:05 CDT 2021
+
+000 1004 |            LOAD twenThree       
+001 3005 |            ADD hexy             
+002 2006 |            STORE zero           
+003 7000 |            HALT                 
+004 0023 |  twenThree HEX 23               
+005 FFE9 |  hexy      HEX FFE9             
+006 0000 |  zero      HEX 0                
+
+Assembly successful.
+
+         SYMBOL TABLE
+         -----------------------------------------------------
+          Symbol    | Defined | References 
+         -----------+---------+-------------------------------
+          hexy      |   005   | 001
+          twenThree |   004   | 000
+          zero      |   006   | 002
+         -----------------------------------------------------
+
+

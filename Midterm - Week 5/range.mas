@@ -1,0 +1,51 @@
+clear
+input
+store in1
+store high
+store low
+input
+store in2
+input
+store in3
+load high 
+subt in2
+skipcond 800
+jump higher2nd
+checkThird, load high
+subt in3
+skipcond 000
+jump findMin
+load in3
+store high
+jump findMin
+higher2nd, load in2
+store high
+jump checkThird
+
+findMin, load low 
+subt in2
+skipcond 000
+jump lower2nd
+checkThirdLow, load low
+subt in3
+skipcond 800
+jump rangeFinding
+load in3
+store low
+jump rangeFinding
+lower2nd, load in2
+store low
+jump checkThirdLow
+
+rangeFinding, load high
+subt low
+store range
+output
+halt
+
+in1, dec 0
+in2, dec 0
+in3, dec 0
+high, dec 0
+low, dec 0
+range, dec 0

@@ -1,0 +1,7 @@
+load twenThree
+add hexy
+store zero
+halt
+twenThree, hex 23
+hexy, hex ffe9
+zero, hex 0

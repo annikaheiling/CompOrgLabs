@@ -1,0 +1,22 @@
+clear
+store quotient
+input 
+store large
+input
+store small
+subtract, load large
+subt small
+store large
+negCheck, skipcond 000
+jump quotAdd
+load quotient
+output
+halt
+quotAdd, load quotient
+add one
+store quotient
+jump subtract
+large, dec 0
+small, dec 0
+one, dec 1
+quotient, dec 0

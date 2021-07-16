@@ -1,0 +1,41 @@
+     Assembly listing for: mid4.mas
+                Assembled: Thu Jul 15 22:58:05 CDT 2021
+
+000 A000 |         CLEAR             
+001 2014 |         STORE z1          
+002 2015 |         STORE z2          
+003 5000 |         INPUT             
+004 2014 |         STORE z1          
+005 5000 |         INPUT             
+006 2015 |         STORE z2          
+007 1014 |         LOAD z1           
+008 4015 |         SUBT z2           
+009 8400 |         SKIPCOND 400      
+00A 900C |         JUMP zzc          
+00B 9012 |         JUMP out          
+00C 8000 |  zzc    SKIPCOND 000      
+00D 9011 |         JUMP z11          
+00E 900F |         JUMP zzf          
+00F 1015 |  zzf    LOAD z2           
+010 9012 |         JUMP out          
+011 1014 |  z11    LOAD z1           
+012 6000 |  out    OUTPUT            
+013 7000 |         HALT              
+014 0000 |  z1     HEX 0000          
+015 0000 |  z2     HEX 0000          
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          out    |   012   | 00B, 010
+          z1     |   014   | 001, 004, 007, 011
+          z11    |   011   | 00D
+          z2     |   015   | 002, 006, 008, 00F
+          zzc    |   00C   | 00A
+          zzf    |   00F   | 00E
+         --------------------------------------------------
+
+

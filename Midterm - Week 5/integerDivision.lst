@@ -1,0 +1,42 @@
+     Assembly listing for: integerDivision.mas
+                Assembled: Fri Jul 16 01:00:42 CDT 2021
+
+000 A000 |           CLEAR               
+001 2015 |           STORE quotient      
+002 5000 |           INPUT               
+003 2012 |           STORE large         
+004 5000 |           INPUT               
+005 2013 |           STORE small         
+006 1012 |  subtract LOAD large          
+007 4013 |           SUBT small          
+008 2012 |           STORE large         
+009 8000 |  negCheck SKIPCOND 000        
+00A 900E |           JUMP quotAdd        
+00B 1015 |           LOAD quotient       
+00C 6000 |           OUTPUT              
+00D 7000 |           HALT                
+00E 1015 |  quotAdd  LOAD quotient       
+00F 3014 |           ADD one             
+010 2015 |           STORE quotient      
+011 9006 |           JUMP subtract       
+012 0000 |  large    DEC 0               
+013 0000 |  small    DEC 0               
+014 0001 |  one      DEC 1               
+015 0000 |  quotient DEC 0               
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ----------------------------------------------------
+          Symbol   | Defined | References 
+         ----------+---------+-------------------------------
+          large    |   012   | 003, 006, 008
+          negCheck |   009   | 
+          one      |   014   | 00F
+          quotAdd  |   00E   | 00A
+          quotient |   015   | 001, 00B, 00E, 010
+          small    |   013   | 005, 007
+          subtract |   006   | 011
+         ----------------------------------------------------
+
+

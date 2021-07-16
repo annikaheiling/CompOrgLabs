@@ -1,0 +1,11 @@
+ -------------------
+ Symbol   | Location
+ ---------+---------
+ large    |   012
+ negCheck |   009
+ one      |   014
+ quotAdd  |   00E
+ quotient |   015
+ small    |   013
+ subtract |   006
+

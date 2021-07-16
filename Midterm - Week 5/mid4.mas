@@ -1,0 +1,22 @@
+clear
+store z1
+store z2
+input
+store z1
+input
+store z2
+load z1
+subt z2
+skipcond 400
+jump zzc
+jump out
+zzc, skipcond 000
+jump z11
+jump zzf
+zzf, load z2
+jump out
+z11, load z1
+out, output
+halt
+z1, hex 0000
+z2, hex 0000

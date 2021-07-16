@@ -1,0 +1,7 @@
+load twentyThree
+add efEfEeNine
+store zero
+halt
+twentyThree, dec 23
+efEfEeNine, hex FFE9
+zero, dec 0

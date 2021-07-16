@@ -1,0 +1,76 @@
+     Assembly listing for: range.mas
+                Assembled: Fri Jul 16 00:58:15 CDT 2021
+
+000 A000 |                CLEAR                    
+001 5000 |                INPUT                    
+002 202A |                STORE in1                
+003 202D |                STORE high               
+004 202E |                STORE low                
+005 5000 |                INPUT                    
+006 202B |                STORE in2                
+007 5000 |                INPUT                    
+008 202C |                STORE in3                
+009 102D |                LOAD high                
+00A 402B |                SUBT in2                 
+00B 8800 |                SKIPCOND 800             
+00C 9014 |                JUMP higher2nd           
+00D 102D |  checkThird    LOAD high                
+00E 402C |                SUBT in3                 
+00F 8000 |                SKIPCOND 000             
+010 9017 |                JUMP findMin             
+011 102C |                LOAD in3                 
+012 202D |                STORE high               
+013 9017 |                JUMP findMin             
+014 102B |  higher2nd     LOAD in2                 
+015 202D |                STORE high               
+016 900D |                JUMP checkThird          
+         |                                        
+017 102E |  findMin       LOAD low                 
+018 402B |                SUBT in2                 
+019 8000 |                SKIPCOND 000             
+01A 9022 |                JUMP lower2nd            
+01B 102E |  checkThirdLow LOAD low                 
+01C 402C |                SUBT in3                 
+01D 8800 |                SKIPCOND 800             
+01E 9025 |                JUMP rangeFinding        
+01F 102C |                LOAD in3                 
+020 202E |                STORE low                
+021 9025 |                JUMP rangeFinding        
+022 102B |  lower2nd      LOAD in2                 
+023 202E |                STORE low                
+024 901B |                JUMP checkThirdLow       
+         |                                        
+025 102D |  rangeFinding  LOAD high                
+026 402E |                SUBT low                 
+027 202F |                STORE range              
+028 6000 |                OUTPUT                   
+029 7000 |                HALT                     
+         |                                        
+02A 0000 |  in1           DEC 0                    
+02B 0000 |  in2           DEC 0                    
+02C 0000 |  in3           DEC 0                    
+02D 0000 |  high          DEC 0                    
+02E 0000 |  low           DEC 0                    
+02F 0000 |  range         DEC 0                    
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ---------------------------------------------------------
+          Symbol        | Defined | References 
+         ---------------+---------+-------------------------------
+          checkThird    |   00D   | 016
+          checkThirdLow |   01B   | 024
+          findMin       |   017   | 010, 013
+          high          |   02D   | 003, 009, 00D, 012, 015, 025
+          higher2nd     |   014   | 00C
+          in1           |   02A   | 002
+          in2           |   02B   | 006, 00A, 014, 018, 022
+          in3           |   02C   | 008, 00E, 011, 01C, 01F
+          low           |   02E   | 004, 017, 01B, 020, 023, 026
+          lower2nd      |   022   | 01A
+          range         |   02F   | 027
+          rangeFinding  |   025   | 01E, 021
+         ---------------------------------------------------------
+
+
