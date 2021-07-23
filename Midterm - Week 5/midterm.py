@@ -13,11 +13,11 @@ def dec2To10(b2dec):
     if binArr[i] == "1":
       decSum += (2**(-(i+1)))
     i += 1
-  # print(decSum)
+  print(decSum)
   return decSum
-# dec2To10(".100") # Output: .5
-# dec2To10(".101") # Output: .625
-# dec2To10(".1101") # Output: .81252
+dec2To10(".100") # Output: .5
+dec2To10(".101") # Output: .625
+dec2To10(".1101") # Output: .8125
 
 #1B: takes some fraction in decimal form & bit-length. outputs rep in unsigned base-2 
 # (restricted to the bit-length).
@@ -35,9 +35,9 @@ def dec10to2(dec, bitLen):
   while len(bin) < bitLen:
     bin += "0"
   bin = "." + bin
-  # print(bin)
+  print(bin)
   return bin
-# dec10to2(.625, 4) # Input1: .625; Input2: 4; Output:.1010
-# dec10to2(.81252, 4) # Input1: .81252; Input2: 4; Output: .1101
-# dec10to2(.81252, 2) # Input1: .81252; Input2: 2; Output: .11
-# dec10to2(.81252, 3) # Input1: .81252; Input2: 3; Output: .110
+dec10to2(.625, 4) # Input1: .625; Input2: 4; Output:.1010
+dec10to2(.81252, 4) # Input1: .81252; Input2: 4; Output: .1101
+dec10to2(.81252, 2) # Input1: .81252; Input2: 2; Output: .11
+dec10to2(.81252, 3) # Input1: .81252; Input2: 3; Output: .110

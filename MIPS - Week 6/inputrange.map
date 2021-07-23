@@ -1,0 +1,12 @@
+ -----------------------
+ Symbol       | Location
+ -------------+---------
+ high         |   01F
+ low          |   020
+ lowCheck     |   012
+ new          |   01E
+ newInput     |   007
+ newVal       |   00C
+ range        |   021
+ rangeFinding |   019
+

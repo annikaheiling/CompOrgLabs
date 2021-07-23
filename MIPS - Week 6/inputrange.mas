@@ -1,0 +1,40 @@
+/accepts user input of Dec values until a 0 is input. 
+/the program then outputs the range of all these values.
+clear
+input
+store high
+store low
+skipcond 400
+jump newInput /if AC not 0
+jump rangeFinding /if AC 0
+newInput, input
+store new
+skipcond 400
+jump newVal /if AC not 0
+jump rangeFinding /if AC 0
+/compare to high, replace high if needed
+newVal, subt high /if AC atp is positive, replace high as new, else continue
+skipcond 800 
+jump lowCheck /executed if new value is not the new high
+load new /continue starting here if new value is the new high
+store high
+jump newInput
+/compare to low, replace low if needed
+lowCheck, load new
+subt low
+skipcond 000
+jump newInput /if doesn't change low
+load new /if is new low
+store low
+jump newInput /continue if doesn't change range
+
+rangeFinding, load high
+subt low
+store range
+output
+halt
+
+new, dec 0
+high, dec 0
+low, dec 0
+range, dec 0

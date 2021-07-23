@@ -1,0 +1,83 @@
+in a high level language: 
+if x<y then
+  x=x+x 
+else 
+  y=y+y
+
+in MARIE: 
+load x
+subt y 
+skipcond 000
+jump dy 
+jump dx 
+dy, load y 
+add y 
+store y 
+jump end 
+dx, load x 
+add x 
+store x 
+end, halt
+
+in MIPS: 
+lw $2, x 
+lw $3, y 
+bge $2, $3, else #should it be true, go to else
+add $2, $2, $2
+sw $2, x 
+j end 
+else: 
+add $3, $3, $3
+sw $3, y 
+end: 
+system call
+
+
+#######################################
+consider a for-loop...
+
+in a high level language:
+for i = 1 to 10 do 
+  x=x+x 
+
+in MIPS:
+lw $2, x 
+for_init: 
+li $5, 1
+for_compare:
+bgt $5, 10, end_for #if reg 5 > 10, end loop
+add $2, $2, $2
+sw $2, x 
+addi $5, $5, 1
+j for_compare 
+end_for:
+system call 
+
+
+
+
+#################
+MIPS sim 
+
+.data 
+x: .word 4
+y: .word 11
+.text 
+.globl main 
+
+main:
+lw $t1, x 
+lw $t2, y 
+bge $t1, $t2, else 
+add $t1, $t1, $t1 
+sw $t1, x 
+j end 
+else: 
+add $t2, $t2, $t2 
+sw $t2, y 
+end: 
+li $v0, 1
+lw $a0, y 
+syscall
+li $v0, 10
+syscall

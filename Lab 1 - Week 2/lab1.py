@@ -57,6 +57,7 @@ def base10ToBin(dec, bitLen):
 #3: accepts string of 1s&0s in insigned int rep, converts to ONE's complement
 def binToOnes(bin):
   if bin[0] == "+":
+    print(bin[1:])
     return bin[1:]
   else:
     ones = ""
@@ -67,11 +68,14 @@ def binToOnes(bin):
       else:
         ones += "1"
       i += 1
+  print(ones)
   return ones
 #TESTS:
- # binToOnes("+00011100") # output: "00011100"
- # binToOnes("-00011100") # output: "11100011"
- # binToOnes("-11101010") # output: "00010101" says overflow, but think it was mistake
+binToOnes("+00011100") # output: "00011100"
+binToOnes("-00011100") # output: "11100011"
+binToOnes("-11101010") # output: "00010101" says overflow, but think it was mistake
+binToOnes("+0111")
+binToOnes("+1100")
 
 #4: accepts string of 1s&0s in unsigned int rep, converts to TWO's complement
 def binToTwos(bin):

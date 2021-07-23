@@ -1,0 +1,61 @@
+     Assembly listing for: inputrange.mas
+                Assembled: Thu Jul 22 21:43:31 CDT 2021
+
+         |                                      /accepts user input of Dec values until a 0 is input. 
+         |                                      /the program then outputs the range of all these values.
+000 A000 |               CLEAR                   
+001 5000 |               INPUT                   
+002 201F |               STORE high              
+003 2020 |               STORE low               
+004 8400 |               SKIPCOND 400            
+005 9007 |               JUMP newInput          /if AC not 0
+006 9019 |               JUMP rangeFinding      /if AC 0
+007 5000 |  newInput     INPUT                   
+008 201E |               STORE new               
+009 8400 |               SKIPCOND 400            
+00A 900C |               JUMP newVal            /if AC not 0
+00B 9019 |               JUMP rangeFinding      /if AC 0
+         |                                      /compare to high, replace high if needed
+00C 401F |  newVal       SUBT high              /if AC atp is positive, replace high as new, else continue
+00D 8800 |               SKIPCOND 800            
+00E 9012 |               JUMP lowCheck          /executed if new value is not the new high
+00F 101E |               LOAD new               /continue starting here if new value is the new high
+010 201F |               STORE high              
+011 9007 |               JUMP newInput           
+         |                                      /compare to low, replace low if needed
+012 101E |  lowCheck     LOAD new                
+013 4020 |               SUBT low                
+014 8000 |               SKIPCOND 000            
+015 9007 |               JUMP newInput          /if doesn't change low
+016 101E |               LOAD new               /if is new low
+017 2020 |               STORE low               
+018 9007 |               JUMP newInput          /continue if doesn't change range
+         |                                      
+019 101F |  rangeFinding LOAD high               
+01A 4020 |               SUBT low                
+01B 2021 |               STORE range             
+01C 6000 |               OUTPUT                  
+01D 7000 |               HALT                    
+         |                                      
+01E 0000 |  new          DEC 0                   
+01F 0000 |  high         DEC 0                   
+020 0000 |  low          DEC 0                   
+021 0000 |  range        DEC 0                   
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------------
+          Symbol       | Defined | References 
+         --------------+---------+-------------------------------
+          high         |   01F   | 002, 00C, 010, 019
+          low          |   020   | 003, 013, 017, 01A
+          lowCheck     |   012   | 00E
+          new          |   01E   | 008, 00F, 012, 016
+          newInput     |   007   | 005, 011, 015, 018
+          newVal       |   00C   | 00A
+          range        |   021   | 01B
+          rangeFinding |   019   | 006, 00B
+         --------------------------------------------------------
+
+
