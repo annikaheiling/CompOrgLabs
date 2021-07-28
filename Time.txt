@@ -1,7 +1,0 @@
-Lab 1 Week 2
-conversions, ranges, and ceilings in python
-2hrs on 6/24/21
-1.5hrs on 6/25/21           
-1hrs on 6/26
-2hrs so FAR on 6/27
-TOTAL: 6.5
