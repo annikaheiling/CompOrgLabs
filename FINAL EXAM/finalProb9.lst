@@ -1,0 +1,107 @@
+     Assembly listing for: finalProb9.mas
+                Assembled: Fri Aug 06 23:17:41 CDT 2021
+
+         |                                      /A
+         |                                      /what: storing the input value into memory (until a 0 is input),
+         |                                      /starting at hex add 040 and moving up to 041, 042... etc.
+         |                                      /how: keeps the address to be used in m036, updating every input loop.
+         |                                      /keeps a count of how many numbers have been input in m037
+000 A000 |               CLEAR                   
+001 1035 |               LOAD startAddr         //hex 040
+002 2036 |               STORE currentAddr      //hex 0 -> hex 040
+003 5000 |  inp          INPUT                   
+004 8400 |               SKIPCOND 400            
+005 9007 |               JUMP jOh7              /if AC is NOT 0??
+006 900F |               JUMP jB                /DO if AC=0
+007 E036 |  jOh7         STOREI currentAddr     /store the input(?) in hex040 address
+008 1036 |               LOAD currentAddr        
+009 303A |               ADD one                 
+00A 2036 |               STORE currentAddr       
+00B 1037 |               LOAD places             
+00C 303A |               ADD one                 
+00D 2037 |               STORE places            
+00E 9003 |               JUMP inp                
+         |                                      
+         |                                      /B
+00F D035 |  jB           LOADI startAddr        /load 1st stored value
+010 203E |               STORE ohThreeE         /put it in 3e
+011 1035 |               LOAD startAddr          
+012 303A |               ADD one                 
+013 2036 |               STORE currentAddr       
+014 1037 |               LOAD places             
+015 403B |               SUBT two                
+016 2038 |               STORE ohThreeEight     /places -2?
+017 1038 |  j17          LOAD ohThreeEight       
+018 8000 |               SKIPCOND 000            
+019 901B |               JUMP j1b               /if places-2 is 0 or larger
+01A 9027 |               JUMP j27               /if places-2 negative
+01B 103E |  j1b          LOAD ohThreeE          / if places-2 = 0+, load 1st val?
+01C 203C |               STORE ohThreeC         /update 3c w smallest
+01D D036 |               LOADI currentAddr      /load value stored at address stored in 3e
+01E 203D |               STORE checking         /put that in 3d
+01F 002A |               JNS ohTwoA             /Stores PC at address 2a and jumps to 2a+1 (aka 9C)
+020 1036 |               LOAD currentAddr        
+021 303A |               ADD one                 
+022 2036 |               STORE currentAddr       
+023 1038 |               LOAD ohThreeEight       
+024 403A |               SUBT one                
+025 2038 |               STORE ohThreeEight      
+026 9017 |               JUMP j17                
+027 103E |  j27          LOAD ohThreeE           
+028 6000 |               OUTPUT                  
+029 7000 |               HALT                    
+         |                                      
+         |                                      /C used only if places-2 is not negative /if last val (3c) is less than current val (3d), 
+02A 0000 |  ohTwoA       HEX 0                   
+02B 103C |               LOAD ohThreeC           
+02C 403D |               SUBT checking           
+02D 8000 |               SKIPCOND 000            
+02E 9032 |               JUMP j32               /if AC 0 or +
+02F 103C |               LOAD ohThreeC          /if AC - (not a new smallest)
+030 203E |               STORE ohThreeE          
+031 9034 |               JUMP j34                
+032 103D |  j32          LOAD checking          /(a new smallest!)
+033 203E |               STORE ohThreeE         /update 3e w smallest
+034 C02A |  j34          JUMPI ohTwoA            
+         |                                      
+         |                                      /D
+035 0040 |  startAddr    HEX 040                 
+036 0000 |  currentAddr  HEX 0                   
+037 0000 |  places       DEC 0                   
+038 0000 |  ohThreeEight DEC 0                   
+039 0000 |  ohThreeNine  DEC 0                   
+03A 0001 |  one          DEC 1                   
+03B 0002 |  two          DEC 2                   
+03C 0000 |  ohThreeC     DEC 0                  /smallest big loop
+03D 0000 |  checking     DEC 0                  /checking
+03E 0000 |  ohThreeE     DEC 0                  /smallest small loop
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------------
+          Symbol       | Defined | References 
+         --------------+---------+-------------------------------
+          checking     |   03D   | 01E, 02C, 032
+          currentAddr  |   036   | 002, 007, 008, 00A, 013, 01D, 
+                       |         | 020, 022
+          inp          |   003   | 00E
+          j17          |   017   | 026
+          j1b          |   01B   | 019
+          j27          |   027   | 01A
+          j32          |   032   | 02E
+          j34          |   034   | 031
+          jB           |   00F   | 006
+          jOh7         |   007   | 005
+          ohThreeC     |   03C   | 01C, 02B, 02F
+          ohThreeE     |   03E   | 010, 01B, 027, 030, 033
+          ohThreeEight |   038   | 016, 017, 023, 025
+          ohThreeNine  |   039   | 
+          ohTwoA       |   02A   | 01F, 034
+          one          |   03A   | 009, 00C, 012, 021, 024
+          places       |   037   | 00B, 00D, 014
+          startAddr    |   035   | 001, 00F, 011
+          two          |   03B   | 015
+         --------------------------------------------------------
+
+

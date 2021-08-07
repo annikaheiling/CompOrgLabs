@@ -1,0 +1,74 @@
+/A
+/what: storing the input value into memory (until a 0 is input),
+/starting at hex add 040 and moving up to 041, 042... etc.
+/how: keeps the address to be used in m036, updating every input loop.
+/keeps a count of how many numbers have been input in m037
+clear
+load startAddr //hex 040
+store currentAddr //hex 0 -> hex 040
+inp, input
+skipcond 400 
+jump jOh7 /if AC is NOT 0??
+jump jB /DO if AC=0
+jOh7, storei currentAddr /store the input(?) in hex040 address
+load currentAddr
+add one
+store currentAddr
+load places
+add one
+store places
+jump inp
+
+/B
+jB, loadi startAddr /load 1st stored value
+store ohThreeE /put it in 3e
+load startAddr
+add one
+store currentAddr
+load places
+subt two
+store ohThreeEight /places -2?
+j17, load ohThreeEight
+skipcond 000
+jump j1b /if places-2 is 0 or larger
+jump j27 /if places-2 negative
+j1b, load ohThreeE / if places-2 = 0+, load 1st val?
+store ohThreeC /update 3c w smallest
+loadi currentAddr /load value stored at address stored in 3e
+store checking /put that in 3d
+jns ohTwoA /Stores PC at address 2a and jumps to 2a+1 (aka 9C)
+load currentAddr
+add one
+store currentAddr
+load ohThreeEight
+subt one
+store ohThreeEight
+jump j17
+j27, load ohThreeE
+output
+halt
+
+/C used only if places-2 is not negative /if last val (3c) is less than current val (3d), 
+ohTwoA, hex 0
+load ohThreeC
+subt checking
+skipcond 000
+jump j32 /if AC 0 or +
+load ohThreeC /if AC - (not a new smallest)
+store ohThreeE
+jump j34
+j32, load checking /(a new smallest!)
+store ohThreeE /update 3e w smallest
+j34, jumpi ohTwoA
+
+/D
+startAddr, hex 040
+currentAddr, hex 0
+places, dec 0
+ohThreeEight, dec 0 
+ohThreeNine, dec 0 
+one, dec 1
+two, dec 2
+ohThreeC, dec 0 /smallest big loop
+checking, dec 0 /checking
+ohThreeE, dec 0 /smallest small loop
