@@ -1,0 +1,70 @@
+/A
+clear
+load ohThreeFive
+store ohThreeSix
+inp, input
+skipcond 400
+jump jOh7
+jump jOhF
+jOh7, storei ohThreeSix
+load ohThreeSix
+add ohThreeA
+store ohThreeSix
+load ohThreeSeven
+add ohThreeA
+store ohThreeSeven
+jump inp
+
+/B
+jOhF, loadi ohThreeFive
+store ohThreeE
+load ohThreeFive
+add ohThreeA
+store ohThreeSix
+load ohThreeSeven
+subt ohThreeB
+store ohThreeEight
+j17, load ohThreeEight
+skipcond 000
+jump j1b
+jump j27
+j1b, load ohThreeE
+store ohThreeSix
+loadi ohThreeSix
+store ohThreeD
+jns ohTwoA
+load ohThreeSix
+add ohThreeA
+store ohThreeSix
+load ohThreeEight
+subt ohThreeA
+store ohThreeEight
+jump j17
+j27, load ohThreeE
+output
+halt
+
+/C
+ohTwoA, hex 0
+load ohThreeC
+subt ohThreeD
+skipcond 000
+jump j32
+load ohThreeC
+store ohThreeE
+jump j34
+j32, load ohThreeD
+store ohThreeE
+j34, jumpi ohTwoA
+
+/D
+ohThreeFive, hex 040
+ohThreeSix, hex 0
+ohThreeSeven, dec 0
+ohThreeEight, dec 0 
+ohThreeNine,dec 0 
+ohThreeA, dec 1
+ohThreeB, dec 2
+ohThreeC, dec 0
+ohThreeD, dec 0
+ohThreeE, dec 0

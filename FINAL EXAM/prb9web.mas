@@ -1,0 +1,70 @@
+/A
+clear
+load ohThreeFive
+store ohThreeSix
+inp, input
+skipcond 400 
+jump jOh7 /skipped if AC = 0
+jump jOhF /DO if AC=0
+jOh7, storei ohThreeSix
+load ohThreeSix
+add one
+store ohThreeSix
+load ohThreeSeven
+add one
+store ohThreeSeven
+jump inp
+
+/B
+jOhF, loadi ohThreeFive
+store ohThreeE
+load ohThreeFive
+add one
+store ohThreeSix
+load ohThreeSeven
+subt two
+store ohThreeEight
+j17, load ohThreeEight
+skipcond 000
+jump j1b
+jump j27
+j1b, load ohThreeE
+store ohThreeSix
+loadi ohThreeSix
+store ohThreeD
+jns ohTwoA
+load ohThreeSix
+add one
+store ohThreeSix
+load ohThreeEight
+subt one
+store ohThreeEight
+jump j17
+j27, load ohThreeE
+output
+halt
+
+/C
+ohTwoA, hex 0
+load ohThreeC
+subt ohThreeD
+skipcond 000
+jump j32
+load ohThreeC
+store ohThreeE
+jump j34
+j32, load ohThreeD
+store ohThreeE
+j34, jumpi ohTwoA
+
+/D
+ohThreeFive, hex 040
+ohThreeSix, hex 0
+ohThreeSeven, dec 0
+ohThreeEight, dec 0 
+ohThreeNine,dec 0 
+one, dec 1
+two, dec 2
+ohThreeC, dec 0
+ohThreeD, dec 0
+ohThreeE, dec 0
