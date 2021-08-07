@@ -1,0 +1,105 @@
+     Assembly listing for: prb9web.mas
+                Assembled: Thu Aug 05 19:37:27 CDT 2021
+
+         |                                      /A
+000 A000 |               CLEAR                   
+001 1035 |               LOAD ohThreeFive        
+002 2036 |               STORE ohThreeSix        
+003 5000 |  inp          INPUT                   
+004 8400 |               SKIPCOND 400            
+005 9007 |               JUMP jOh7              /skipped if AC = 0
+006 900F |               JUMP jOhF              /DO if AC=0
+007 E036 |  jOh7         STOREI ohThreeSix       
+008 1036 |               LOAD ohThreeSix         
+009 303A |               ADD one                 
+00A 2036 |               STORE ohThreeSix        
+00B 1037 |               LOAD ohThreeSeven       
+00C 303A |               ADD one                 
+00D 2037 |               STORE ohThreeSeven      
+00E 9003 |               JUMP inp                
+         |                                      
+         |                                      /B
+00F D035 |  jOhF         LOADI ohThreeFive       
+010 203E |               STORE ohThreeE          
+011 1035 |               LOAD ohThreeFive        
+012 303A |               ADD one                 
+013 2036 |               STORE ohThreeSix        
+014 1037 |               LOAD ohThreeSeven       
+015 403B |               SUBT two                
+016 2038 |               STORE ohThreeEight      
+017 1038 |  j17          LOAD ohThreeEight       
+018 8000 |               SKIPCOND 000            
+019 901B |               JUMP j1b                
+01A 9027 |               JUMP j27                
+01B 103E |  j1b          LOAD ohThreeE           
+01C 2036 |               STORE ohThreeSix        
+01D D036 |               LOADI ohThreeSix        
+01E 203D |               STORE ohThreeD          
+01F 002A |               JNS ohTwoA              
+020 1036 |               LOAD ohThreeSix         
+021 303A |               ADD one                 
+022 2036 |               STORE ohThreeSix        
+023 1038 |               LOAD ohThreeEight       
+024 403A |               SUBT one                
+025 2038 |               STORE ohThreeEight      
+026 9017 |               JUMP j17                
+027 103E |  j27          LOAD ohThreeE           
+028 6000 |               OUTPUT                  
+029 7000 |               HALT                    
+         |                                      
+         |                                      /C
+02A 0000 |  ohTwoA       HEX 0                   
+02B 103C |               LOAD ohThreeC           
+02C 403D |               SUBT ohThreeD           
+02D 8000 |               SKIPCOND 000            
+02E 9032 |               JUMP j32                
+02F 103C |               LOAD ohThreeC           
+030 203E |               STORE ohThreeE          
+031 9034 |               JUMP j34                
+032 103D |  j32          LOAD ohThreeD           
+033 203E |               STORE ohThreeE          
+034 C02A |  j34          JUMPI ohTwoA            
+         |                                      
+         |                                      /D
+035 0040 |  ohThreeFive  HEX 040                 
+036 0000 |  ohThreeSix   HEX 0                   
+037 0000 |  ohThreeSeven DEC 0                   
+038 0000 |  ohThreeEight DEC 0                   
+039 ???? |  ohThreeNine  0                       
+   **** Instruction not recognized.
+   **** Missing operand.
+03A 0001 |  one          DEC 1                   
+03B 0002 |  two          DEC 2                   
+03C 0000 |  ohThreeC     DEC 0                   
+03D 0000 |  ohThreeD     DEC 0                   
+03E 0000 |  ohThreeE     DEC 0                   
+
+2 errors found.  Assembly unsuccessful.
+
+         SYMBOL TABLE
+         --------------------------------------------------------
+          Symbol       | Defined | References 
+         --------------+---------+-------------------------------
+          inp          |   003   | 00E
+          j17          |   017   | 026
+          j1b          |   01B   | 019
+          j27          |   027   | 01A
+          j32          |   032   | 02E
+          j34          |   034   | 031
+          jOh7         |   007   | 005
+          jOhF         |   00F   | 006
+          ohThreeC     |   03C   | 02B, 02F
+          ohThreeD     |   03D   | 01E, 02C, 032
+          ohThreeE     |   03E   | 010, 01B, 027, 030, 033
+          ohThreeEight |   038   | 016, 017, 023, 025
+          ohThreeFive  |   035   | 001, 00F, 011
+          ohThreeNine  |   039   | 
+          ohThreeSeven |   037   | 00B, 00D, 014
+          ohThreeSix   |   036   | 002, 007, 008, 00A, 013, 01C, 
+                       |         | 01D, 020, 022
+          ohTwoA       |   02A   | 01F, 034
+          one          |   03A   | 009, 00C, 012, 021, 024
+          two          |   03B   | 015
+         --------------------------------------------------------
+
+

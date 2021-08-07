@@ -1,0 +1,23 @@
+ -----------------------
+ Symbol       | Location
+ -------------+---------
+ checking     |   03D
+ currentAddr  |   036
+ inp          |   003
+ j17          |   017
+ j1b          |   01B
+ j27          |   027
+ j32          |   032
+ j34          |   034
+ jB           |   00F
+ jOh7         |   007
+ ohThreeC     |   03C
+ ohThreeE     |   03E
+ ohThreeEight |   038
+ ohThreeNine  |   039
+ ohTwoA       |   02A
+ one          |   03A
+ places       |   037
+ startAddr    |   035
+ two          |   03B
+
